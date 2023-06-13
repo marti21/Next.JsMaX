@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import useUser, { USER_STATES } from '@/hooks/useUser'
 
 export default function Home () {
-  //HOLA
   const user = useUser()
   const router = useRouter()
 
