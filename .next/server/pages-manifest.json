@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/compose/tweet": "pages/compose/tweet.js",
-  "/home": "pages/home.js"
+  "/home": "pages/home.js",
+  "/": "pages/index.js",
+  "/status/[id]": "pages/status/[id].js",
+  "/compose/tweet": "pages/compose/tweet.js"
 }

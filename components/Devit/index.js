@@ -1,12 +1,20 @@
 import useTimeAgo from "@/hooks/useTimeAgo";
 import Avatar from "../Avatar";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Devit ({ avatar, userName, content, id, userId, createdAt }) {
+export default function Devit ({ avatar, userName, content, id, userId, createdAt, imgUrl }) {
     const timeago = useTimeAgo(createdAt)
+    const router = useRouter()
+    
+    const handleArticleClick = (e) => {
+        e.preventDefault()
+        router.push(`/status/${id}`)
+    }
 
     return (
         <>
-            <article>
+            <article onClick={handleArticleClick}>
                 <div>
                     <Avatar src={avatar} alt={userName}></Avatar>
                 </div>
@@ -14,9 +22,12 @@ export default function Devit ({ avatar, userName, content, id, userId, createdA
                     <header>
                         <strong>{userName}</strong>
                         <span> · </span>
-                        <span>{timeago}</span>
+                        <Link href={`/status/${id}`}>
+                            <time>{timeago}</time>
+                        </Link>
                     </header>
                     <p>{content}</p>
+                    {imgUrl && <img src={imgUrl}></img>}
                 </section>
             </article>
 
@@ -26,6 +37,13 @@ export default function Devit ({ avatar, userName, content, id, userId, createdA
                     display: flex;
                     border-bottom: 1px solid #eee;
                 }
+                img {
+                    height: auto;
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                }
+
                 div {
                     padding-right: 10px;
                 }
@@ -33,7 +51,7 @@ export default function Devit ({ avatar, userName, content, id, userId, createdA
                     line-height: 1.3125;
                     margin: 0;
                 }
-                date {
+                time {
                     color: #555;
                     font-size: 14px;
                 }

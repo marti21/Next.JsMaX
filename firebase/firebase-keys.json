@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "martiappnextjs",
+  "private_key_id": "e427121116acd71f42f2b871787d1493b5b7bfa2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCzUdkeLT9o6YmO\nL7WhI0LVfMj1dxIemlN9YWEKGbHqZZCF33QSurWZu0iRfS+7PugUEUHUWBk/aws6\nhatAVHidSodVG6tEJax60v06/gyv/BSitVn3PEvDU03/BGVoAaTRthAb2/ZFoI7O\nulzz2m5sM2L7cLLbXYUkiSwxhNSckCkBWa/I0mQ8/b6ODZXRZMMMcVCOAC85aLY4\nl8APgZnvecK5jgVpu8hDNrc6yYtVnsF+xWRXMNotkoie/eCfN/dUFfQNqzSWMPq2\nssYTM/6hamhhAIFgEQ1GgS0OG6kA4lVQgmun1uI4YD27Cn19JLhvGIQUubKB/Dok\nTfy6Z17DAgMBAAECggEAGn0ftn52nHfLEw7nJKuBxumNAf2Z1p1zcdT9sbFD/90K\n8Uul6NJd2xy4Ro2YjG9pdvVppQVyjVSxru5p8rHHs2x7+02ACiwKg4ZBVAKNOz3g\ninyBkqz8gBkBL4eltyxu/W+Ih6UBhx2FmvIaowcEQsWAfKYUNaVl8pS0y4fUpF/D\n7sstNSR+UTgDlsYay03t0xZRDGt+r+VN26NAZVatf+sxCxqPhdkpizdVZwUkUTTy\nmk2qTsHMhB+EhWmSgHt8HXOGTLnaM7wA3A6HwaTNAKmuvRy51iCJim4aWjO9HV9k\nhNRLUDkeXgQ/Vg3fhYqccKYyDMCoqlhEsAquTM6ccQKBgQDanlmWNvSO1l+erTqx\nsjvHOdM8zFtE34K6dLt2GjXRc9PdBW6GBfNRWg12S7q7o8JzAA/97Upt1n65VpU3\nNwZ1rd7ebKRfQaF23DrkaufNw143IkOdT4KFvIKq/fNNGfw/zy0t5Z+NUFWvicVO\nilSHA14MKzImJA0WTAj2tKX7OwKBgQDR+0JrltiIYN7jzdht4b0yRQIwWU9eIxuJ\nxLrxVIsy9JUiEQDVPb03MsG8u7Cp0YGpxX2q1qIV+kJ3LL8U30TfrymhnVIRLti/\ne2S2/9Zk7CZ+Okh2Fv/E/qVmKDgIGXIGsOInt64gfeFtKA/2t/JHfooVrQIGFiRD\npfAT6zwiGQKBgQCMVXuifnJsQlYtEHwN1yCiWY8shu3Lf0J2mDpBrL+BTT3hsfvp\nkmZHgWwE1MXwb0WB9rdNRAY0Da1ZIag1QmAmKE9ZLhoxf3q7RtGTEMDuB4wyDg+j\nKofZe1HRm6STiKuw9jfFL5JE7x2hyela6lcqN9ImM5BEhX3VI0fZvcqSQwKBgEEq\nnDNtrietAJ9sO9XmL+RQ/Fvq67HIbXx1HJtW5JhcxYe8BSkorvdZfjzHdw1M4tPA\nYb7KO6VcdJItxeOBYwuUffQVMen5QvUyI1CT14Kcs1mLVv+nJZuKd+RbaQBCfVvM\nO3OeEqEsz/AjdcjYz40WnV4awj0HVBvWfMqBv7jJAoGBAJcvHBGT5bq8vvvCTjJB\nCt5ICbniwnpxWS7VdbDP2JFE/lW6twlMluH1R6RYgLWbm/oM8/VpArHPgFFB6EVo\nyvxtw8NPlxyxdb6qQ7ABI13V/KotX5xAfLYYRP/4L+MYZhUWMt6VckYizFYbvWFj\nhbaLWg/NE5WmkWkfvySYsnjc\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-mbcse@martiappnextjs.iam.gserviceaccount.com",
+  "client_id": "117834981041724792244",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mbcse%40martiappnextjs.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

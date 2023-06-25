@@ -2,6 +2,8 @@ import firebase from 'firebase/compat/app' // Importa firebase/compat/app en lug
 import 'firebase/compat/auth'
 import 'firebase/firestore'
 import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+import { useRouter } from 'next/router';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -49,12 +51,21 @@ export const loginWithGitHub = () => {
     // })
 }
 
-export const addDevit = ({avatar, content, userId, userName}) => {
+export const userLogout = () => {
+  return firebase.auth().signOut()
+    // return firebase.auth().signInWithRedirect(githubProvider)
+    // .then(user => {
+  //  return mapUserFromFirebaseAuth(user)
+    // })
+}
+
+export const addDevit = ({avatar, content, userId, userName, imgUrl}) => {
   return database.collection('devits').add({
     avatar,
     content,
     userId,
     userName,
+    imgUrl,
     createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
     likesCount: 0,
     sharedCount: 0
@@ -84,3 +95,12 @@ export const fetchLatestDevits = () => {
     })
   })
 }
+
+export const uploadImage = (file) => {
+  //Es como la estructura de archivos, en una carpetas iimages, y el file.name
+  const ref = firebase.storage().ref(`images/${file.name}`)
+
+  //UPLOAD, task es la tare que esta haciendo.(estado, etc.. para hacer parra de progreso etc...)
+  const task = ref.put(file)
+  return task
+} 

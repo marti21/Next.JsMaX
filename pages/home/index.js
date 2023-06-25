@@ -1,9 +1,9 @@
-import AppLayout from '@/components/AppLayout'
+import Button from '@/components/Button'
 import Devit from '@/components/Devit'
 import Create from '@/components/Icons/Create'
 import Home from '@/components/Icons/Home'
 import Search from '@/components/Icons/Search'
-import { fetchLatestDevits } from '@/firebase/client'
+import { fetchLatestDevits, userLogout } from '@/firebase/client'
 import useUser from '@/hooks/useUser'
 import { colors } from '@/styles/theme'
 import Head from 'next/head'
@@ -19,40 +19,46 @@ export default function HomePage () {
     })
     }, [user])
 
+    const handleClick = () => {
+        userLogout()
+        .catch(err => {
+          console.log(err)
+        })
+      }
+
     return (
         <>
-            <AppLayout>
-                <Head>
-                    <title>Inicio / Marti</title>
-                </Head>
-                <header>
-                    <h2>Inicio</h2>
-                </header>
+            <Head>
+                <title>Inicio / Marti</title>
+            </Head>
+            <header>
+                <h2>Inicio</h2>
+            </header>
 
-                <section>
-                    {timeline.map(({ id, userName, avatar, content, userId, createdAt }) => (
-                        <Devit key={id} avatar={avatar} userName={userName} content={content} id={userId} userId={userId} createdAt={createdAt} />
-                    ))}
-                </section>
+            <section>
+                {timeline.map(({ id, userName, avatar, content, userId, imgUrl,createdAt }) => (
+                    <Devit key={id} avatar={avatar} userName={userName} content={content} id={id} userId={userId} createdAt={createdAt} imgUrl={imgUrl}/>
+                ))}
+            </section>
 
-                <nav>
-                    <span>
-                        <Link href="/home">
-                            <Home stroke="#09f" width={32} height={32}></Home>
-                        </Link>
-                    </span>
-                    <span>
-                        <Link href="/search">
-                            <Search stroke="#09f" width={32} height={32}></Search>
-                        </Link>
-                    </span>
-                    <span>
-                        <Link href="/compose/tweet">
-                            <Create stroke="#09f" width={32} height={32}></Create>
-                        </Link>
-                    </span>
-                </nav>
-            </AppLayout>
+            <nav>
+                <span>
+                    <Link href="/home">
+                        <Home stroke="#09f" width={32} height={32}></Home>
+                    </Link>
+                </span>
+                <span>
+                    <Button onClick={handleClick}>
+                        <Search stroke="#09f" width={32} height={32}></Search>
+                    </Button>
+                </span>
+                <span>
+                    <Link href="/compose/tweet">
+                        <Create stroke="#09f" width={32} height={32}></Create>
+                    </Link>
+                </span>
+            </nav>
+            
             <style jsx>
             {`
                 header {

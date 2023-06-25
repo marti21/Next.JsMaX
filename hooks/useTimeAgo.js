@@ -33,7 +33,7 @@ export default function useTimeAgo (timestamp) {
         return () => clearInterval(timeout)
     }, [timestamp])
 
-    const rtf = new Intl.RelativeTimeFormat(navigator.language, { style: 'short' })
+    const rtf = new Intl.RelativeTimeFormat("es", { style: 'long' })
     const { value, unit } = timeago
 
     return rtf.format(value, unit)
