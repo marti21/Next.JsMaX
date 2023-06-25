@@ -3,7 +3,7 @@ import Devit from '@/components/Devit'
 import Create from '@/components/Icons/Create'
 import Home from '@/components/Icons/Home'
 import Search from '@/components/Icons/Search'
-import { fetchLatestDevits, userLogout } from '@/firebase/client'
+import { fetchLatestDevits, listenLatestDevits, userLogout } from '@/firebase/client'
 import useUser from '@/hooks/useUser'
 import { colors } from '@/styles/theme'
 import Head from 'next/head'
@@ -14,10 +14,23 @@ export default function HomePage () {
     const [timeline, setTimeline] = useState([])
     const user = useUser()
 
+    useEffect(() => {
+        let unsubscribe
+        if(user){
+            unsubscribe = listenLatestDevits((newDevits) => {
+                setTimeline(newDevits)
+            })
+        }
+
+        return () => unsubscribe && unsubscribe()
+    }, [user])
+
+    /*
     useEffect(() => { user && fetchLatestDevits().then(timeline => {
         setTimeline(timeline)
     })
     }, [user])
+    */
 
     const handleClick = () => {
         userLogout()

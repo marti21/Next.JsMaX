@@ -72,29 +72,46 @@ export const addDevit = ({avatar, content, userId, userName, imgUrl}) => {
   })
 }
 
+const mapDevitFromFirebaseToDevitObject = doc => {
+  const data = doc.data()
+  const id = doc.id
+  const { createdAt } = data
+  
+  // const intl = new Intl.DateTimeFormat('es-ES')
+  // const date = new Date(createdAt.seconds * 1000)
+  // const normalizedCretedAt = intl.format(date)
+
+  // se devuelva la id del documento y con los ... se envian todos los campos del document
+  return {
+    ...data,
+    id,
+    // Esto devuelve el timestamp con el unario (+)
+    createdAt: +createdAt.toDate()
+  }
+}
+
+//CADA VEZ QUE HAY CAMBIOS EN LA BD DEVITS, LLAMA A LA FUNCION CALLBACK
+export const listenLatestDevits = (callback) => {
+  return database.collection('devits')
+  .orderBy('createdAt', 'desc')
+  //.limit(20)
+  .onSnapshot(({ docs }) => {
+    const newDevits = docs.map(doc => mapDevitFromFirebaseToDevitObject(doc))
+    callback(newDevits)
+  })
+}
+
+/*
 export const fetchLatestDevits = () => {
   return database.collection('devits').orderBy('createdAt', 'desc')
   .get()
   .then(({ docs }) => {
     return docs.map(doc => {
-      const data = doc.data()
-      const id = doc.id
-      const { createdAt } = data
-      
-      // const intl = new Intl.DateTimeFormat('es-ES')
-      // const date = new Date(createdAt.seconds * 1000)
-      // const normalizedCretedAt = intl.format(date)
-
-      // se devuelva la id del documento y con los ... se envian todos los campos del document
-      return {
-        ...data,
-        id,
-        // Esto devuelve el timestamp con el unario (+)
-        createdAt: +createdAt.toDate()
-      }
+      return mapDevitFromFirebaseToDevitObject(doc)
     })
   })
 }
+*/
 
 export const uploadImage = (file) => {
   //Es como la estructura de archivos, en una carpetas iimages, y el file.name
